@@ -42,7 +42,8 @@ namespace lab03
                     "\t\t4 --> Congelados\n" +
                     "\t\t5 --> Despensa\n" +
                     "\t\t6 --> Panaderia y Pasteleria\n" +
-                    "\t\t7 --> Quesos y Fiambres\n");
+                    "\t\t7 --> Quesos y Fiambres\n\n");
+
                 cat = int.Parse(Console.ReadLine());
 
                 switch (cat)
@@ -80,15 +81,25 @@ namespace lab03
                         break;
                 }
 
-                Console.WriteLine("Ingrese el nombre del prodcuto:\n");
+                Console.WriteLine("\nIngrese el nombre del prodcuto:");
                 name = Console.ReadLine();
 
+                Console.WriteLine("\nIngrese la Marca del Producto: " );
+                brand = Console.ReadLine();
 
+                Console.WriteLine("\nIngrese el Precio de Venta del Producto ( Ingrese el valor sin numero ni coma) : ");
+                price = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("\nIngrese el Stock inicial del Producto ( Ingrese el valor sin numero ni coma) : ");
+                stock = int.Parse(Console.ReadLine());
 
                 code = 999999 - i;
                 Console.WriteLine("El codigo generado para el producto ingresado es: {0} ", code);
             }
+
         }
+
+        
 
     }    
 }

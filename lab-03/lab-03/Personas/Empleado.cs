@@ -29,17 +29,41 @@ namespace lab03
             this.horario = horario;
         }
 
-       // public void Datos()
-       // {
-       //     Console.WriteLine("Ingrese los datos personales del Empleado: \n");
-         //   Console.WriteLine("\t Nombre: ");
-           // Name = Console.ReadLine();
-         //   Console.WriteLine("Ingrese los datos personales del Empleado: \n");
-           // Console.WriteLine("Ingrese los datos personales del Empleado: \n");
-       //     Console.WriteLine("Ingrese los datos personales del Empleado: \n");
-        //}
+        public void Datos()
+        {
+            Console.WriteLine("Ingrese los datos personales del Empleado: \n");
+            Console.WriteLine("\t Nombre: ");
+            Name = Console.ReadLine();
+            Console.WriteLine("Apellido: \n");
+            Last = Console.ReadLine();
+            Console.WriteLine("Id (Rut): \n");
+            Id = int.Parse(Console.ReadLine());
+            Console.WriteLine("Fecha de Nacimiento: \n");
+            string formats = "yyyy/MM/dd";
+            string dateStrings = Console.ReadLine();
+            DateTime parsedDate;
+            if (DateTime.TryParseExact(dateStrings, formats, null,
+                                        System.Globalization.DateTimeStyles.AllowWhiteSpaces |
+                                        System.Globalization.DateTimeStyles.AdjustToUniversal,
+                                        out parsedDate))
+                Birth = parsedDate;
+            Console.WriteLine("Nacionalidad: \n");
+            Nacion = Console.ReadLine();
+        }
 
-       
+        public void Show_Datos()
+        {
+            Console.WriteLine("Ficha Personal de {0} {1}: \n", Name, Last);
+            Console.WriteLine("Id: {0}: \n", Id);
+            Console.WriteLine("Fecha de Nacimiento: {0}: \n", Birth);
+            Console.WriteLine("Nacionalidad: {0}: \n", Nacion);
+            Console.WriteLine("Cargo: {0}: \n", cargo);
+            Console.WriteLine("Sueldo: {0}: \n", paga);
+            Console.WriteLine("Horario de trabajo: {0} ({1} Horas Diarias\n", horario, horas);
+            Console.WriteLine("Id: {0}: \n", Id);
+
+        }
+
 
         public void Puesto()
         {

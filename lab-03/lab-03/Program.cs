@@ -7,7 +7,7 @@ namespace lab03
         public static void Main(string[] args)
         {
             Console.WriteLine("\n\n------Bienvenido al Portal Virtual de LAIDER CHILE------\n\n\n");
-            Console.WriteLine("\t\t\t\t\t\t--MENU--\n");
+            Console.WriteLine("\t\t\t--MENU--\n");
             Console.WriteLine("Elija una de las siguientes opciones:\n" +
                  "\t\t1 --> Jefe de Local\n" +
                  "\t\t2 --> Supervisor de Cajas\n" +
