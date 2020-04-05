@@ -16,6 +16,11 @@ namespace lab03
                  "\t\t5 --> Auxiliar de Limpieza\n" +
                  "\t\t6 --> Guardia de Seguridad\n" +
                  "\t\t7 --> Encargado de Bodega\n");
+
+            
+
+
+
         }
     }
 }

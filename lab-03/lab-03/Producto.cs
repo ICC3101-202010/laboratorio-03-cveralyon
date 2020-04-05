@@ -30,7 +30,7 @@ namespace lab03
         public string Categorie { get => categorie; set => categorie = value; }
         public bool Aux1 { get => aux1; set => aux1 = value; }
 
-        public void Enrolar(int i)
+        public void Enrolar(int i)// hacer un contador afuera que ingrese cada vez que se enrrola un producto
         {
             while (aux1)
             {

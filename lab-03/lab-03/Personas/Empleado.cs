@@ -29,7 +29,7 @@ namespace lab03
             this.horario = horario;
         }
 
-        public void Datos()
+        public void Datos_emp()
         {
             Console.WriteLine("Ingrese los datos personales del Empleado: \n");
             Console.WriteLine("\t Nombre: ");
@@ -41,7 +41,7 @@ namespace lab03
             Console.WriteLine("Fecha de Nacimiento: \n");
             string formats = "yyyy/MM/dd";
             string dateStrings = Console.ReadLine();
-            DateTime parsedDate;
+            DateTime parsedDate; // duda con como funciona este comando
             if (DateTime.TryParseExact(dateStrings, formats, null,
                                         System.Globalization.DateTimeStyles.AllowWhiteSpaces |
                                         System.Globalization.DateTimeStyles.AdjustToUniversal,
