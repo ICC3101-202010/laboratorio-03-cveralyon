@@ -9,11 +9,11 @@ namespace lab03
         private DateTime birth;
         private string nacion;
 
-        protected int Id { get => id; set => id = value; }
-        protected string Name { get => name; set => name = value; }
-        protected string Last { get => last; set => last = value; }
-        protected DateTime Birth { get => birth; set => birth = value; }
-        protected string Nacion { get => nacion; set => nacion = value; }
+        public int Id { get => id; set => id = value; }
+        public string Name { get => name; set => name = value; }
+        public string Last { get => last; set => last = value; }
+        public DateTime Birth { get => birth; set => birth = value; }
+        public string Nacion { get => nacion; set => nacion = value; }
 
         protected Persona(int id, string name, string last, DateTime birth, string nacion)
         {

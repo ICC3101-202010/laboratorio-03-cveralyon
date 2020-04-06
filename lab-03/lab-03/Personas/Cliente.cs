@@ -1,16 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace lab03
 {
     public class Cliente : Persona
     {
-        private string[] lista;
-        private bool aux2;
-        private int paga;
-        private int horas;
-        private int horario;
+        private List<Compra> historial = new List<Compra>();
 
-        public Cliente(int id, string name, string last, DateTime birth, string nacion) : base(id, name, last, birth, nacion)
+
+        public List<Compra> Historial { get => historial; set => historial = value; }
+
+        public Cliente(int id, string name, string last, DateTime birth, string nacion, List<Compra> historial) : base(id, name, last, birth, nacion)
         {
+            this.Id = id;
+            this.Name = name;
+            this.Last = last;
+            this.Birth = birth;
+            this.Nacion = nacion;
+            this.historial = historial;
+
         }
 
         public void Datos_cl()
@@ -35,8 +43,28 @@ namespace lab03
             Nacion = Console.ReadLine();
         }
 
+        public void Registro(Compra compra)
+        {
+            historial.Add(compra);
+        }
+
+        public void Show_registro()
+        {
+            Console.WriteLine("Historial de Compras de {0} {1} ", Name, Last);
+            foreach (Compra comp in historial)
+            {
+                
+                Console.WriteLine("--> BOLETA  Nro. # {0}   Fecha y Hora: {1}", comp.N_boleta, comp.P_time);
+                Console.WriteLine("Id Cajero: {0}", comp.Id_empleado);
+                Console.WriteLine("");
+                Console.WriteLine("    CODIGO      PRODUCTO           PRECIO     ");
+                foreach (Producto prod in comp.Lista_prod)
+                {
+                    Console.WriteLine("-> {0} -- {1} -- $ {2} ", prod.Code, prod.Name, prod.Price);
+                }
 
 
-
+            }
+        }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace lab03
 {
     public class Producto
@@ -49,7 +51,7 @@ namespace lab03
                 switch (cat)
                 {
                     case 1:
-                        categorie = "Bebestible";
+                        categorie = "Bebestible";// crear lista de listas para meter los productos en una loista diferente dado su categoria
                         aux1 = false;
                         break;
                     case 2:
