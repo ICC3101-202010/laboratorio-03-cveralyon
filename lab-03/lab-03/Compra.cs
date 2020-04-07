@@ -19,19 +19,14 @@ namespace lab03
         public int Id_empleado { get => id_empleado; set => id_empleado = value; }
         public bool Aux3 { get => aux3; set => aux3 = value; }
 
-        public Compra(List<Producto> lista_prod, DateTime p_time, int id_cliente, int n_boleta, int id_empleado, bool aux3)
+        public Compra(int id_cliente, int id_empleado)
         {
-            this.lista_prod = lista_prod;
-            this.p_time = p_time;
             this.id_cliente = id_cliente;
-            this.n_boleta = n_boleta;
             this.id_empleado = id_empleado;
-            this.aux3 = aux3;
         }
 
         public void Hora_compra()
         { 
-
             string formats = "MM/dd/yyyy h:mm tt";
             string dateStrings = DateTime.Now.ToString();
             DateTime parsedDate; // duda con como funciona este comando
@@ -78,7 +73,6 @@ namespace lab03
             N_boleta = 0 + i;
             id_cliente = cliente.Id;
             id_empleado = empleado.Id;
-            cliente.Registro(compra);
             Console.WriteLine("\t\t---BOLETA---\n" +
                 "\t\t\t\t Numero: # {0} \n" +
                 "\t  Fecha y Hora: {2}", N_boleta, compra.p_time);

@@ -20,8 +20,6 @@ namespace lab03
         public void Agregar_elemento(Producto p)
         {          
             elementos.Add(p);
-        }
-
-        
+        }       
     }
 }

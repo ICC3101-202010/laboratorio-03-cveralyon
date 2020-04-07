@@ -17,44 +17,21 @@ namespace lab03
         public int Horas { get => horas; set => horas = value; }
         public int Horario1 { get => horario; set => horario = value; }
 
-        public Empleado(int id, string name, string last, DateTime birth, string nacion, string cargo, bool aux, int paga, int horas, int horario) : base(id, name, last, birth, nacion)
+        public Empleado(int id, string name, string last, DateTime birth, string nacion) : base(id, name, last, birth, nacion)
         {
             this.Id = id;
             this.Name = name;
             this.Last = last;
             this.Birth  = birth;
             this.Nacion = nacion;
-            this.cargo = cargo;
-            this.aux = aux;
-            this.paga = paga;
-            this.horas = horas;
-            this.horario = horario;
+            
         }
 
-        public void Datos_emp()
-        {
-            Console.WriteLine("Ingrese los datos personales del Empleado: \n");
-            Console.WriteLine("\t Nombre: ");
-            Name = Console.ReadLine();
-            Console.WriteLine("Apellido: \n");
-            Last = Console.ReadLine();
-            Console.WriteLine("Id (Rut): \n");
-            Id = int.Parse(Console.ReadLine());
-            Console.WriteLine("Fecha de Nacimiento: \n");
-            string formats = "yyyy/MM/dd";
-            string dateStrings = Console.ReadLine();
-            DateTime parsedDate; // duda con como funciona este comando
-            if (DateTime.TryParseExact(dateStrings, formats, null,
-                                        System.Globalization.DateTimeStyles.AllowWhiteSpaces |
-                                        System.Globalization.DateTimeStyles.AdjustToUniversal,
-                                        out parsedDate))
-                Birth = parsedDate;
-            Console.WriteLine("Nacionalidad: \n");
-            Nacion = Console.ReadLine();
-        }
+        
 
         public void Show_Datos()
         {
+            Console.WriteLine("  ------------------------------------------------------------------  ");
             Console.WriteLine("Ficha Personal de {0} {1}: \n", Name, Last);
             Console.WriteLine("Id: {0}: \n", Id);
             Console.WriteLine("Fecha de Nacimiento: {0}: \n", Birth);
@@ -62,7 +39,8 @@ namespace lab03
             Console.WriteLine("Cargo: {0}: \n", cargo);
             Console.WriteLine("Sueldo: {0}: \n", paga);
             Console.WriteLine("Horario de trabajo: {0} ({1} Horas Diarias\n", horario, horas);
-            Console.WriteLine("Id: {0}: \n", Id);
+            Console.WriteLine("  ------------------------------------------------------------------  ");
+
 
         }
 
@@ -72,7 +50,7 @@ namespace lab03
             int c;
             while (aux)
             {
-                Console.WriteLine("Cual es el cargo del empleado: \n" +
+                Console.WriteLine("Seleccione el cargo que desea asignar al empleado: \n" +
                     "\t\t1 --> Jefe de Local\n" +
                     "\t\t2 --> Supervisor de Cajas\n" +
                     "\t\t3 --> Cajero\n" +

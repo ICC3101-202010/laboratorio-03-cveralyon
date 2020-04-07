@@ -22,6 +22,6 @@ namespace lab03
             this.last = last;
             this.birth = birth;
             this.nacion = nacion;
-        }
+        }       
     }
 }
