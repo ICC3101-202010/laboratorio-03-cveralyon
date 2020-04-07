@@ -8,8 +8,7 @@ namespace lab03
         public static void Main(string[] args)
         {
             Funciones funciones = new Funciones();
-            int count_emp = 0;
-            int count_cli = 0;
+           
 
             Console.WriteLine("\n\n\t\t------Bienvenido al Portal Virtual de LAIDER CHILE------\n\n");
             Console.WriteLine(" \tSeleccione el MODO de Inicio del Programa:\n" +
@@ -21,6 +20,7 @@ namespace lab03
 
             switch (modo)
             {
+
                 case 1:                         // opciones de que tipo de persona es la que usara el programa 
                     int plataforma;
                     do
@@ -40,6 +40,7 @@ namespace lab03
                                 int op_empleado;
                                 do
                                 {
+                                    int count_emp = 0;
                                     Console.WriteLine("  ------------------------------------------------------------------  ");
                                     Console.WriteLine("  ------------------------------------------------------------------  ");
                                     Console.WriteLine("Seleccione la opcion deseada:\n" +
@@ -60,6 +61,7 @@ namespace lab03
                                 int op_cliente;
                                 do
                                 {
+                                    int count_cli = 0;
                                     Console.WriteLine("  ------------------------------------------------------------------  ");
                                     Console.WriteLine("  ------------------------------------------------------------------  ");
                                     Console.WriteLine("Seleccione la opcion deseada:\n" +
@@ -71,7 +73,7 @@ namespace lab03
                                      "\t\t6 --> Volver al Menu Anterior\n");
                                     op_cliente = funciones.Numero(6);
                                     funciones.Editar_cliente(op_cliente, count_cli);
-                                    if (op_cliente == 1) { count_emp += 1; }
+                                    if (op_cliente == 1) { count_cli += 1; }
                                 } while (op_cliente != 6);
                                 break;
                             case 3:         //CLOSE PROGRAME
