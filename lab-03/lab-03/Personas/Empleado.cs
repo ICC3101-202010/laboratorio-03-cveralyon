@@ -48,6 +48,7 @@ namespace lab03
         public void Puesto()
         {
             int c;
+            aux = true;
             while (aux)
             {
                 Console.WriteLine("Seleccione el cargo que desea asignar al empleado: \n" +
@@ -106,7 +107,10 @@ namespace lab03
                 paga = int.Parse(Console.ReadLine());
                 if (paga < 319000)
                 {
+                    Console.WriteLine("  \n------------------------------------------------------------------  ");
                     Console.WriteLine("El sueldo de su empleado debe ser superior a 319.000, dado que es el sueldo minimo en chile");
+                    Console.WriteLine("  ------------------------------------------------------------------  \n");
+
                 }
                 else if (paga >= 319000)
                 {
@@ -135,7 +139,7 @@ namespace lab03
                 {
                     aux = false;
                 }               
-                else
+                else if (horas != 4 || horas != 6 || horas != 8 || horas != 10)
                 {
                     Console.WriteLine("\n-------ERROR: Opcion no valida--Ingrese una opcion valida--------\n" +
                         "4 / 6 / 8 / 10");

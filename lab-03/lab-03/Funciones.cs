@@ -162,7 +162,7 @@ namespace lab03
                                                 System.Globalization.DateTimeStyles.AdjustToUniversal,
                                                 out parsedDate))
 
-                        Console.WriteLine("\nNacionalidad: ");
+                    Console.WriteLine("\nNacionalidad: ");
                     string nacion = Console.ReadLine();
                     clientes.Add(new Cliente(id, name, last, parsedDate, nacion));                   
                     break;
@@ -207,7 +207,7 @@ namespace lab03
                                             int e;
                                             do
                                             {                                              
-                                                Console.WriteLine("Seleccione una opcion:" +
+                                                Console.WriteLine("\nSeleccione una opcion:\n" +
                                                             "1 >> Agregar Producto\n" +
                                                             "2 >> Terminar Compra\n");
                                                 e = Numero(2);
@@ -232,13 +232,13 @@ namespace lab03
                                                                 int can = Numero(99999);
                                                                 cc.Historial[hacer].Agregar_producto(produ, can);
                                                                 ss = false;
-                                                                Console.WriteLine("\nPRODUCTO AGREGADO\n");
+                                                                
 
                                                             }
                                                             else
                                                             {
                                                                 Console.WriteLine("  ------------------------------------------------------------------  ");
-                                                                Console.WriteLine("\n\nIngrese el CODIGO de producto existente\n");
+                                                                Console.WriteLine("\n\nIngrese un CODIGO de producto existente\n");
                                                                 Console.WriteLine("  ------------------------------------------------------------------  ");
                                                             }
 
@@ -254,7 +254,7 @@ namespace lab03
                                             f = false;
                                             Console.WriteLine("  ------------------------------------------------------------------  ");
                                             Console.WriteLine("  ------------------------------------------------------------------  ");
-                                            Console.WriteLine("\n\nIngrese el RUT existente\n");
+                                            Console.WriteLine("\n\nIngrese un RUT existente\n");
                                             Console.WriteLine("  ------------------------------------------------------------------  ");
                                             Console.WriteLine("  ------------------------------------------------------------------  ");
 

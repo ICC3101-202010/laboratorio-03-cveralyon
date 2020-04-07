@@ -48,7 +48,7 @@ namespace lab03
                     {
                         while (cantidad >= 0)
                         {
-                            lista_prod[0] = producto;
+                            lista_prod.Add(producto);
                             producto.Stock -= cantidad;
                             cantidad -= 1;
                         }
