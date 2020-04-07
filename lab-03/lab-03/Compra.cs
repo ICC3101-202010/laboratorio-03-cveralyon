@@ -38,31 +38,36 @@ namespace lab03
         }
 
         public void Agregar_producto( Producto producto, int cantidad )
-        {                       
-            if (producto.Stock >= cantidad)
+        {
+            bool ccc = true;
+            do
             {
-                for (int i = 0; ; i++)
+                if (producto.Stock >= cantidad)
                 {
-                    while (cantidad >= 0)
-                    { 
-                        lista_prod[0] = producto;
-                        producto.Stock -= cantidad;
-                        cantidad -= 1;
+                    for (int i = 0; ; i++)
+                    {
+                        while (cantidad >= 0)
+                        {
+                            lista_prod[0] = producto;
+                            producto.Stock -= cantidad;
+                            cantidad -= 1;
+                        }
+                        Console.WriteLine("Producto Agregado a la compra");
+                        ccc = false;
                     }
-                    Console.WriteLine("Producto Agregado a la compra");
+                }
+                else if (producto.Stock == 0)
+                {
+
+                    Console.WriteLine("\n---LO SENTIMOS, PERO NO CONTAMOS CON EL STOCK SOLICITADO DE {0} ---\n", producto.Name);
 
                 }
-            }
-            else if (producto.Stock == 0)
-            {
-                Console.WriteLine("---LO SENTIMOS, PERO NO CONTAMOS CON EL STOCK SOLICITADO DE {0} ---", producto.Name);
-            
-            }
-            else
-            {
-                Console.WriteLine("---LO SENTIMOS, PERO QUEDAN SOLO {0} UNIDADES DE {1} ---" +
-                    "---INTENTE CON UNA CANTIDAD INFERIOR A LA SOLICITADA ---", producto.Stock , producto.Name);
-            }
+                else
+                {
+                    Console.WriteLine("\n---LO SENTIMOS, PERO QUEDAN SOLO {0} UNIDADES DE {1} ---\n" +
+                        "---INTENTE CON UNA CANTIDAD INFERIOR A LA SOLICITADA ---\n", producto.Stock, producto.Name);
+                }
+            } while (!ccc);
             
 
         }
@@ -75,7 +80,7 @@ namespace lab03
             id_empleado = empleado.Id;
             Console.WriteLine("\t\t---BOLETA---\n" +
                 "\t\t\t\t Numero: # {0} \n" +
-                "\t  Fecha y Hora: {2}", N_boleta, compra.p_time);
+                "\t  Fecha y Hora: {1}", N_boleta, compra.p_time);
             Console.WriteLine("");
             Console.WriteLine("Cliente: {0} {1} \n" +
                 "Rut: {2}", cliente.Name, cliente.Last, cliente.Id);

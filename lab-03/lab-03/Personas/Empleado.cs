@@ -9,13 +9,13 @@ namespace lab03
         private bool aux;
         private int paga;
         private int horas;
-        private int horario;
+        private string horario;
 
         public string Cargo { get => cargo; set => cargo = value; }
         public bool Aux { get => aux; set => aux = value; }
         public int Paga { get => paga; set => paga = value; }
         public int Horas { get => horas; set => horas = value; }
-        public int Horario1 { get => horario; set => horario = value; }
+        public string Horario1 { get => horario; set => horario = value; }
 
         public Empleado(int id, string name, string last, DateTime birth, string nacion) : base(id, name, last, birth, nacion)
         {
@@ -34,11 +34,11 @@ namespace lab03
             Console.WriteLine("  ------------------------------------------------------------------  ");
             Console.WriteLine("Ficha Personal de {0} {1}: \n", Name, Last);
             Console.WriteLine("Id: {0}: \n", Id);
-            Console.WriteLine("Fecha de Nacimiento: {0}: \n", Birth);
+            Console.WriteLine("Fecha de Nacimiento: {0} \n", Birth);
             Console.WriteLine("Nacionalidad: {0}: \n", Nacion);
             Console.WriteLine("Cargo: {0}: \n", cargo);
             Console.WriteLine("Sueldo: {0}: \n", paga);
-            Console.WriteLine("Horario de trabajo: {0} ({1} Horas Diarias\n", horario, horas);
+            Console.WriteLine("Horario de trabajo: {0} ({1} Horas Diarias) \n", horario, horas);
             Console.WriteLine("  ------------------------------------------------------------------  ");
 
 
@@ -102,7 +102,7 @@ namespace lab03
             aux = true;
             while (aux)
             {
-                Console.WriteLine("Ingrese el sueldo que recibira el empleado(numero, sin puntos ni comas): \n");
+                Console.WriteLine("Ingrese el sueldo que recibira el empleado(numero, sin puntos ni comas):");
                 paga = int.Parse(Console.ReadLine());
                 if (paga < 319000)
                 {
@@ -110,7 +110,7 @@ namespace lab03
                 }
                 else if (paga >= 319000)
                 {
-                    Console.WriteLine("El monto fue guardado con exito");
+                    Console.WriteLine("El monto fue guardado con exito\n");
                     aux = false;
                 }
                 else
@@ -148,9 +148,16 @@ namespace lab03
                     "\t\t 1--> 09:00 - 13:00\n" +
                     "\t\t 2--> 14:00 - 18:00\n");
                         h = int.Parse(Console.ReadLine());
-                        if (h == 1 || h == 2)
+                        if (h == 1 )
                         {
-                            Console.WriteLine("El horario fue guardado con exito");
+                            horario = "09:00 - 13:00";
+                            Console.WriteLine("El horario fue guardado con exito\n");
+                            aux = false;
+                        }
+                        if (h == 2)
+                        {
+                            horario = "14:00 - 18:00";
+                            Console.WriteLine("El horario fue guardado con exito\n");
                             aux = false;
                         }
                         else
@@ -164,9 +171,16 @@ namespace lab03
                     "\t\t 1--> 08:00 - 14:00\n" +
                     "\t\t 2--> 14:00 - 20:00\n");
                         h = int.Parse(Console.ReadLine());
-                        if (h == 1 || h == 2)
+                        if (h == 1)
                         {
-                            Console.WriteLine("El horario fue guardado con exito");
+                            horario = "08:00 - 14:00";
+                            Console.WriteLine("El horario fue guardado con exito\n");
+                            aux = false;
+                        }
+                        if (h == 2)
+                        {
+                            horario = "14:00 - 20:00";
+                            Console.WriteLine("El horario fue guardado con exito\n");
                             aux = false;
                         }
                         else
@@ -180,9 +194,16 @@ namespace lab03
                     "\t\t 1--> 08:00 - 16:00\n" +
                     "\t\t 2--> 14:00 - 22:00\n");
                         h = int.Parse(Console.ReadLine());
-                        if (h == 1 || h == 2)
+                        if (h == 1)
                         {
-                            Console.WriteLine("El horario fue guardado con exito");
+                            horario = "08:00 - 16:00";
+                            Console.WriteLine("El horario fue guardado con exito\n");
+                            aux = false;
+                        }
+                        if (h == 2)
+                        {
+                            horario = "14:00 - 22:00";
+                            Console.WriteLine("El horario fue guardado con exito\n");
                             aux = false;
                         }
                         else
@@ -196,9 +217,16 @@ namespace lab03
                     "\t\t 1--> 08:00 - 18:00\n" +
                     "\t\t 2--> 12:00 - 22:00\n");
                         h = int.Parse(Console.ReadLine());
-                        if (h == 1 || h == 2)
+                        if (h == 1)
                         {
-                            Console.WriteLine("El horario fue guardado con exito");
+                            horario = "08:00 - 18:00";
+                            Console.WriteLine("El horario fue guardado con exito\n");
+                            aux = false;
+                        }
+                        if (h == 2)
+                        {
+                            horario = "12:00 - 22:00";
+                            Console.WriteLine("El horario fue guardado con exito\n");
                             aux = false;
                         }
                         else

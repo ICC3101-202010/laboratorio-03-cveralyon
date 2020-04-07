@@ -30,13 +30,13 @@ namespace lab03
             {
                 case 1:
                     Console.WriteLine("Ingrese los datos personales del Empleado: \n");
-                    Console.WriteLine("\t Nombre: ");
+                    Console.WriteLine("Nombre: ");
                     string name = Console.ReadLine();
-                    Console.WriteLine("Apellido: \n");
+                    Console.WriteLine("Apellido: ");
                     string last = Console.ReadLine();
-                    Console.WriteLine("Id (Rut): \n");
+                    Console.WriteLine("Id (Rut): ");
                     int id = Numero(999999999);
-                    Console.WriteLine("Fecha de Nacimiento: \n");
+                    Console.WriteLine("Fecha de Nacimiento (yyyy/MM/dd): ");
                     string formats = "yyyy/MM/dd";
                     string dateStrings = Console.ReadLine();
                     DateTime parsedDate; // duda con como funciona este comando
@@ -45,9 +45,9 @@ namespace lab03
                                                 System.Globalization.DateTimeStyles.AdjustToUniversal,
                                                 out parsedDate))
                                            
-                    Console.WriteLine("Nacionalidad: \n");
+                    Console.WriteLine("Nacionalidad:");
                     string nacion = Console.ReadLine();
-                    empleados[count] = new Empleado(id, name, last, parsedDate, nacion);
+                    empleados.Add(new Empleado(id, name, last, parsedDate, nacion));
                     empleados[count].Puesto();
                     empleados[count].Sueldo();
                     empleados[count].Horario();
@@ -108,7 +108,7 @@ namespace lab03
                     Console.WriteLine("\nIngrese el Stock inicial del Producto ( Ingrese el valor sin numero ni coma) : ");
                     int stock = Numero(99999);                   
                     int code = 999999 - count;
-                    Console.WriteLine("El codigo generado para el producto ingresado es: {0} ", code);
+                    Console.WriteLine("El codigo generado para el producto ingresado es: {0} \n", code);
                     productos.Add(new Producto(code, p_name, price, brand, stock));
                     break;
 
@@ -133,6 +133,7 @@ namespace lab03
                                 Console.WriteLine("Nuevo Stock: ");
                                 pro.Stock = (Numero(99999));
                             }
+                            Console.WriteLine("Producto actualizado");
                         }
                     }
                     break;
@@ -146,13 +147,13 @@ namespace lab03
             {
                 case 1:
                     Console.WriteLine("Ingrese los datos personales del Cliente: \n");
-                    Console.WriteLine("\t Nombre: ");
+                    Console.WriteLine("\nNombre: ");
                     string name = Console.ReadLine();
-                    Console.WriteLine("Apellido: \n");
+                    Console.WriteLine("\nApellido: ");
                     string last = Console.ReadLine();
-                    Console.WriteLine("Id (Rut): \n");
+                    Console.WriteLine("\nId (Rut): ");
                     int id = Numero(999999999);
-                    Console.WriteLine("Fecha de Nacimiento: \n");
+                    Console.WriteLine("\nFecha de Nacimiento (yyyy/MM/dd): ");
                     string formats = "yyyy/MM/dd";
                     string dateStrings = Console.ReadLine();
                     DateTime parsedDate; // duda con como funciona este comando
@@ -161,9 +162,9 @@ namespace lab03
                                                 System.Globalization.DateTimeStyles.AdjustToUniversal,
                                                 out parsedDate))
 
-                        Console.WriteLine("Nacionalidad: \n");
+                        Console.WriteLine("\nNacionalidad: ");
                     string nacion = Console.ReadLine();
-                    clientes[co] = new Cliente(id, name, last, parsedDate, nacion);                   
+                    clientes.Add(new Cliente(id, name, last, parsedDate, nacion));                   
                     break;
 
                 case 2:
@@ -186,7 +187,7 @@ namespace lab03
                     bool g = true;
                     do
                     {
-                        Console.WriteLine("\nIngrese el RUT del Cliente:\n");
+                        Console.WriteLine("\nIngrese el RUT del Cliente:");
                         int rut = Numero(999999999);
                         foreach (Cliente cc in clientes)
                         {
@@ -195,7 +196,7 @@ namespace lab03
                                 bool f = true;
                                 do
                                 {
-                                    Console.WriteLine("Ingrse Rut del Cajero:\n");
+                                    Console.WriteLine("Ingrse Rut del Cajero:");
                                     int rutt = Numero(999999999);
                                     foreach (Empleado em in empleados)
                                     {
@@ -206,31 +207,44 @@ namespace lab03
                                             int e;
                                             do
                                             {                                              
-                                                Console.WriteLine("Seleccione una opcion:\n" +
+                                                Console.WriteLine("Seleccione una opcion:" +
                                                             "1 >> Agregar Producto\n" +
                                                             "2 >> Terminar Compra\n");
                                                 e = Numero(2);
                                                 if (e == 1)
                                                 {
-                                                    foreach (Producto produ in productos)
+                                                    bool ss = true;
+                                                    do
                                                     {
-                                                        produ.Show_productos();
-
-                                                    }
-                                                    Console.WriteLine("Ingrese el Codigo del producto:\n");
-                                                    int codee = Numero(999999);
-                                                    Console.WriteLine("Ingrese la cantidad de unidades:\n");
-                                                    int can = Numero(99999);
-                                                    foreach (Producto produ in productos)
-                                                    {
-                                                        if (produ.Code == codee)
+                                                        foreach (Producto produ in productos)
                                                         {
-                                                            cc.Historial[hacer].Agregar_producto(produ, can);
+                                                            produ.Show_productos();
 
                                                         }
+                                                        Console.WriteLine("Ingrese el Codigo del producto:");
+                                                        int codee = Numero(999999);
 
-                                                    }
-                                                    
+                                                        foreach (Producto produ in productos)
+                                                        {
+                                                            if (produ.Code == codee)
+                                                            {
+                                                                Console.WriteLine("Ingrese la cantidad de unidades:");
+                                                                int can = Numero(99999);
+                                                                cc.Historial[hacer].Agregar_producto(produ, can);
+                                                                ss = false;
+                                                                Console.WriteLine("\nPRODUCTO AGREGADO\n");
+
+                                                            }
+                                                            else
+                                                            {
+                                                                Console.WriteLine("  ------------------------------------------------------------------  ");
+                                                                Console.WriteLine("\n\nIngrese el CODIGO de producto existente\n");
+                                                                Console.WriteLine("  ------------------------------------------------------------------  ");
+                                                            }
+
+                                                        }
+                                                    } while (!ss);
+
                                                 }
                                             } while (e!=2);
                                             cc.Historial[hacer].Boleta(hacer, em, cc, cc.Historial[hacer]);
@@ -238,6 +252,12 @@ namespace lab03
                                         else
                                         {
                                             f = false;
+                                            Console.WriteLine("  ------------------------------------------------------------------  ");
+                                            Console.WriteLine("  ------------------------------------------------------------------  ");
+                                            Console.WriteLine("\n\nIngrese el RUT existente\n");
+                                            Console.WriteLine("  ------------------------------------------------------------------  ");
+                                            Console.WriteLine("  ------------------------------------------------------------------  ");
+
                                         }
                                     }
                                 } while (!f);
@@ -245,7 +265,11 @@ namespace lab03
                             else
                             {
                                 g = false;
+                                Console.WriteLine("  ------------------------------------------------------------------  ");
+                                Console.WriteLine("  ------------------------------------------------------------------  ");
                                 Console.WriteLine("\n\nIngrese el RUT existente\n");
+                                Console.WriteLine("  ------------------------------------------------------------------  ");
+                                Console.WriteLine("  ------------------------------------------------------------------  ");
 
                             }
                         }

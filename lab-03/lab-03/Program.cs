@@ -25,6 +25,8 @@ namespace lab03
                     int plataforma;
                     do
                     {
+                        Console.WriteLine("  ------------------------------------------------------------------  ");
+                        Console.WriteLine("  ------------------------------------------------------------------  ");
                         Console.WriteLine("Seleccione la Plataforma deseada:\n" +
                          "\t\t1 --> Empleados \n" +
                          "\t\t2 --> Clientes \n" +
@@ -38,6 +40,8 @@ namespace lab03
                                 int op_empleado;
                                 do
                                 {
+                                    Console.WriteLine("  ------------------------------------------------------------------  ");
+                                    Console.WriteLine("  ------------------------------------------------------------------  ");
                                     Console.WriteLine("Seleccione la opcion deseada:\n" +
                                      "\t\t1 --> Ingresar Datos de un nuevo empleado\n" +
                                      "\t\t2 --> Mostrar los datos de TODOS los Empleados LAIDER CHILE \n" +
@@ -56,6 +60,8 @@ namespace lab03
                                 int op_cliente;
                                 do
                                 {
+                                    Console.WriteLine("  ------------------------------------------------------------------  ");
+                                    Console.WriteLine("  ------------------------------------------------------------------  ");
                                     Console.WriteLine("Seleccione la opcion deseada:\n" +
                                      "\t\t1 --> Ingresar Datos de un nuevo Cliente\n" +
                                      "\t\t2 --> Mostrar los datos de TODOS los Clientes\n" +
@@ -72,7 +78,7 @@ namespace lab03
                                 break;
 
                             default:
-                                Console.WriteLine("\n-------ERROR: Opcion no valida--Ingrese una opcion valida--------");
+                                Console.WriteLine("\n-------ERROR: Opcion no valida--Ingrese una opcion valida--------\n");
                                 break;
 
 
@@ -83,7 +89,11 @@ namespace lab03
 
                     break;
                 case 2:
+                    Console.WriteLine("  ------------------------------------------------------------------  ");
+                    Console.WriteLine("  ------------------------------------------------------------------  ");
                     Console.WriteLine("Esta opcion aun esta en construccion, lamentamos las molestias");
+                    Console.WriteLine("  ------------------------------------------------------------------  ");
+                    Console.WriteLine("  ------------------------------------------------------------------  ");
                     break;
                 case 3:
                     break;
